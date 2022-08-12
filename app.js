@@ -12,7 +12,7 @@ const port = 8000;
 
 app.get('/',(req,res) => {
 
-  res.send("Hello World");
+  res.send("Hey This is the backend of the e-portfolio");
 });
 
 app.listen(port, () =>{
