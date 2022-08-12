@@ -6,9 +6,9 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-// app.use(router);
+app.use(router);
 
-const port = process.env.port || 8000;
+const port = process.env.port || 8081;
 
 app.get('/',(req,res) => {
 
