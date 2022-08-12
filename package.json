@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/sahil973/portfolio-backend.git"
   },
+  "type": "module",
   "author": "Sahil Mehar",
   "license": "ISC",
   "bugs": {
@@ -18,6 +19,8 @@
   },
   "homepage": "https://github.com/sahil973/portfolio-backend#readme",
   "dependencies": {
+    "aws": "0.0.3-2",
+    "aws-sdk": "^2.1194.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
