@@ -8,7 +8,13 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+
+app.use(cors({
+  origin: 'https://mehar-portfolio-frontend.herokuapp.com',
+  methods: ['GET','PUT','PATCH'],
+  optionsSuccessStatus: 200
+}))
+
 app.use(router);
 
 const port = process.env.PORT || 8081;
