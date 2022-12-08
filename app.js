@@ -12,7 +12,7 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: 'https://mehar-portfolio-frontend.herokuapp.com',
+  origin: 'https://master.d8gzto5szrbai.amplifyapp.com',
   methods: ['GET','PUT','PATCH'],
   optionsSuccessStatus: 200
 }));
