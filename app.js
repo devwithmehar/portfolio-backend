@@ -28,6 +28,11 @@ app.get('/',(req,res) => {
   res.send("Hey This is the backend of the e-portfolio");
 });
 
+
+app.get('/health',(req,res) => {
+
+  res.status(200).json({success: true});
+});
 app.listen(port, () =>{
   console.log(`Server is listening to the PORT: ${port}`);
 })
