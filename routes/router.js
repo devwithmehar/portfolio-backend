@@ -7,42 +7,61 @@ dotevn.config();
 const router = express.Router();
 
 const ses = new aws.SES({
-  region: "us-east-1",
+  region: process.env.AWS_REGION,
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey:process.env.AWS_SECRET_ACCESS_KEY,
   });
 
-router.post("/email", (req, res) => {
-  const {fullName, email, message} = req.body;
-  console.log(req.body);
-  sesTest("meharsahil207@gmail.com",email,message, fullName)
+router.post("/contact", (req, res) => {
+  const {name, email, subject,  message} = req.body;
+  
+  sendContactEmail("meharsahil207@gmail.com", name, email, subject, message)
   .then((val) =>{
-    console.log("Got the value", val);
-    res.send("Successful")
+    
+    res.status(200).json({
+      success: true, 
+      message: "Message Sent!"
+    });
   }).catch((err) =>{
     res.send('/error' + err);
   })
 });
 
-function sesTest(emailTo,emailFrom,message,fullName){
-  const params = {
+
+const sendContactEmail = async (emailTo, name, emailFrom, subject, message) => {
+  let params = {
+    Source : process.env.AWS_SENDER,
     Destination: {
       ToAddresses : [emailTo]
     },
     Message: {
       Body: {
-          Text: {
-            Data: "From Contact: " + fullName+ "\n" +  emailFrom + "\n" + message
-          }
+        Text: {
+          Data : `
+New Contact Form Submission:
+
+Name: ${name}
+Email: ${emailFrom}
+Subject: ${subject}
+
+Message:
+${message}
+
+-----------------------------
+This email was sent via the contact form.
+
+          `
+        }
       },
       Subject: {
-        Data: "Name :" + fullName
+        Data: `Contact Form: ${subject} (From ${name})`
       }
-    },
-    Source: "meharsahil207@gmail.com"
+    }
+    
+
   };
 
-  return  ses.sendEmail(params).promise();
+return ses.sendEmail(params).promise();
 
 }
 
