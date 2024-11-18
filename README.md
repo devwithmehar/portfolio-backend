@@ -2,6 +2,11 @@
 
 This is the backend service for the **e-portfolio** project, built with **Node.js** and **Express.js**. It provides APIs to handle contact form submissions, integrates with **AWS SES** for email functionality, and is deployed on **AWS Elastic Beanstalk** with a CI/CD pipeline configured via **AWS CodePipeline**.
 
+## Live Link
+
+The live backend for this project is accessible at:  
+[Portfolio Backend Live](http://porfolio-backend-env.eba-gvwg8p74.us-east-1.elasticbeanstalk.com/)
+
 ---
 
 ## Features
@@ -146,8 +151,9 @@ Feel free to fork the repository, raise issues, or submit pull requests. Contrib
 
 ## License
 
-This project is licensed under the **ISC License**.
+This project is licensed under the **MIT License**.
 
 You are free to use, modify, and distribute this project, provided that the original copyright notice and permission notice are included in all copies or substantial portions of the Software.
 
-For more details, refer to the [ISC License](https://opensource.org/licenses/ISC).
+For more details, refer to the [MIT License](https://opensource.org/licenses/MIT).
+
